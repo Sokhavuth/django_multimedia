@@ -1,8 +1,11 @@
 # mysite/multimedia/views.py
 
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
+context = {
+    'site_title':'Django App',
+    'page_title': 'ទំព័រ​ដើម',
+}
+
 def index(request):
-    return HttpResponse("Hello, world. You're at the multimedia index.")
+    return render(request, 'front/home.html', context)
