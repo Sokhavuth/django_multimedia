@@ -2,10 +2,16 @@
 
 from django.shortcuts import render
 
-context = {
-    'site_title':'Django App',
-    'page_title': 'ទំព័រ​ដើម',
-}
+from .models import Post
 
 def index(request):
-    return render(request, 'front/home.html', context)
+    posts = Post.objects.all().filter(is_published=True)
+    
+    context = {
+        'site_title':'​ពហុព័ត៌មាន',
+        'page_title': 'ទំព័រ​ដើម',
+        'items': posts,
+        'route': '/',
+    }
+
+    return render(request, 'base.html', context)

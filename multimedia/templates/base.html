@@ -13,6 +13,9 @@
     <script src="{% static 'scripts/jquery.js' %}"></script>
   </head>
   <body>
-    Welcome to Khmer Web Django application!
+    {% include 'header.html' %}
+    {% if route == '/' %}
+      {% include 'home.html' %}
+    {% endif %}
   </body>
 </html>

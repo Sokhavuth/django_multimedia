@@ -1,0 +1,49 @@
+/* mysite/multimedia/static/styles/header.css */
+
+.Header{
+    background: var(--background-dark);
+    color: white;
+    border-top: 3px solid var(--background-light);
+}
+
+.Header a{
+    color: white;
+}
+
+.Header .inner{
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    align-items: center;
+    padding: 15px 5px;
+}
+
+.Header .inner .title{
+    font: 35px/1.5 Oswald, Limonf3;
+}
+
+.Header .inner form{
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+}
+
+.Header .inner form input,
+.Header .inner form select{
+    font: var(--body-font);
+    padding: 2px 5px;
+}
+
+.Header .inner .login{
+    text-align: right;
+}
+
+@media only screen and (max-width: 800px){
+    .Header .inner{
+        grid-template-columns: 100%;
+        text-align: center;
+
+    }
+
+    .Header .inner form{
+        padding: 5px 0;
+    }
+}

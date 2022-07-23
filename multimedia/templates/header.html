@@ -1,0 +1,49 @@
+<!--mysite/multimedia/templates/header.html-->
+
+{% load static %}
+<link href="{% static 'styles/header.css' %}" rel="stylesheet" />
+
+<section class="Header">
+    <div class="inner region">
+        <div class="title"><a href="/">{{ site_title }}</a></div>
+        <form action="search" method="post">
+            <select name="search" id="search">
+                <option>ទាំងអស់</option>
+                <option>ជំពូក</option>
+            </select>
+            <input type="text" name="q" required  placeholder="Search" />
+            <input type="submit" value="ស្វែង​រក" />
+        </form>
+        <div class="login">
+            <a href="/admin">ចូល​ក្នុង</a> | <span>ចុះឈ្មោះ</span>
+        </div>
+        
+    </div>
+</section>
+
+<section class="Menu">
+    <div class="inner region">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'styles/menu.css' %}" />
+        <div class="topnav" id="myTopnav">
+            <a href="#home" class="active">ទំព័រ​ដើម</a>
+            <a href="#news">ព័ត៌មាន</a>
+            <a href="#contact">ទំនាក់ទំនង</a>
+            <a href="#about">អំពីពួកយើង</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+        x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
