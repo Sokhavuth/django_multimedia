@@ -57,7 +57,7 @@ class Video(models.Model):
     created_at = models.DateField(auto_now=True)
  
     class Meta:
-        ordering = ['created_at','id']
+        ordering = ['created_at']
  
     def __str__(self):
         return self.slug
@@ -71,8 +71,8 @@ class Post(models.Model):
         ('yes', 'ត្រូវ​បាន​ចុះ​ផ្សាយ'),
         ('no', 'មិន​ទាន់​ចុះ​ផ្សាយ')
     ]
-
-    id = models.CharField(primary_key=True, max_length=255,default=uuid4().hex, editable=False) 
+    
+    post_id = models.CharField(max_length=255,default=uuid4().hex, editable=False) 
     title = models.CharField(max_length=255)
     slug = models.SlugField(blank=True)
     content = RichTextField(blank=True)
@@ -86,7 +86,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
  
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['-created_at','-id']
  
     def __str__(self):
         return self.title 

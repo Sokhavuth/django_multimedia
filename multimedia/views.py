@@ -15,9 +15,9 @@ def index(request):
     
     return render(request, 'base.html', Config.context)
 
-def post(request, id):
-    post = Post.objects.get(id=id)
-
+def post(request, post_id):
+    post = Post.objects.get(post_id=post_id)
+    print(post)
     if post.video.values():
         result = post.video.values()      
         videos = [entry for entry in result]

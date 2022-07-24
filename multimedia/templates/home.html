@@ -12,7 +12,7 @@
             {% for post in posts %}
             <li class="item">
                 <div class="thumb">
-                    <a href="/post/{{ post.id }}">
+                    <a href="/post/{{ post.post_id }}">
                         <img src="{{ post.featured_image}}" />
                         {% if post.video.all %}
                         <img class="play-icon" src="{% static '/images/play.png' %}" />
@@ -20,12 +20,12 @@
                     </a>
                 </div>
 
-                <div class="content" id="{{ post.id }}">
-                    <a class="title" href="/post/{{ post.id }}">{{ post.title }}</a>
+                <div class="content" id="{{ post.post_id }}">
+                    <a class="title" href="/post/{{ post.post_id }}">{{ post.title }}</a>
                     <p>
                         <script>
                         date = new Date('{{ post.created_at }}').toLocaleDateString('it-IT')
-                        $('.Main .inner ul li #{{ post.id }}').append(date)
+                        $('.Main .inner ul li #{{ post.post_id }}').append(date)
                         </script>
                     </p>
                     <div class="except">

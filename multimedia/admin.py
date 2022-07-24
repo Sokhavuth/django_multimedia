@@ -13,11 +13,11 @@ class TagAdmin(admin.ModelAdmin):
 
 class VideoAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    ordering = ['-created_at','-id']
+    ordering = ['-created_at', '-id']
 
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
-    ordering = ['-created_at','-id']
+    ordering = ['-created_at', '-id']
 
 
 admin.site.register(Site)
