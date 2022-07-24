@@ -54,8 +54,33 @@
                     setScreen(videos[0],0,false)
                 </script>
             {% endif %}
+
+            {% if post.content %}
+            <div class="post-content">
+                {{ post.content|safe }}
+                <div id="disqus_thread"></div>
+            </div>
+            {% endif %}
+
             {% endif %}
         </div>
         <div class="sidebar">Sidebar</div>
     </div>
 </setion>
+
+<script>
+    var disqus_config = function () {
+    this.page.url = "https://khmerweb-mdjango.vercel.app/post/{ post.id }}";  
+    this.page.identifier = "{{ post.id }}"; 
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://django-multimedia.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">
+    comments powered by Disqus.</a>
+</noscript>

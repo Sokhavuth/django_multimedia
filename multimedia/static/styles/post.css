@@ -34,7 +34,7 @@
 }
 
 .Post .main .content .video .playlist{
-    max-height: 360px;
+    max-height: 361px;
     overflow: auto;
 }
 
@@ -47,7 +47,15 @@
     color: rgb(71, 71, 71);
 }
 
+.Post .main .content .video .playlist .part:first-child{
+    border-top: 1px solid grey;
+}
+
 .Post .main .content .video .playlist .part:hover{
     cursor: pointer;
     opacity: .7;
+}
+
+.Post .main .content .post-content{
+    padding: 20px 0 ;
 }
