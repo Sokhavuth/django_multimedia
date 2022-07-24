@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 70% auto;
     grid-gap: 15px;
+    padding-bottom: 30px;
 }
 
 .Post .main .content, .Post .main .sidebar{
