@@ -44,7 +44,6 @@
 
 .Main .inner ul li .content{
     padding: 2px 10px;
-    font: 18px/1.5 Vidaloka, Limonf3;
 }
 
 .Main .inner ul li .content a{
@@ -53,6 +52,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font: 18px/1.5 StardosStencil, Limonf3;
 }
 
 .Main .inner ul li .content .except{
