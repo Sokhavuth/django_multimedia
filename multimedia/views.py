@@ -18,7 +18,7 @@ def index(request):
 def post(request, id):
     post = Post.objects.get(id=id)
 
-    if post.video:
+    if post.video.values():
         result = post.video.values()      
         videos = [entry for entry in result]
 
@@ -26,10 +26,12 @@ def post(request, id):
             entry.pop("created_at")
 
         videos = json.dumps(videos)
+        Config.context['videos'] = videos
+    else:
+        Config.context['videos'] = False
     
     Config.context['page_title'] = 'ទំព័រ​​​​​​​​អត្ថបទ'
     Config.context['post'] = post
-    Config.context['videos'] = videos
     Config.context['route'] = 'post'
 
     return render(request, 'base.html', Config.context)

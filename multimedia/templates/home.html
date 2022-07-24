@@ -7,6 +7,7 @@
 <section class="Main">
     <div class="inner region">
         {% if posts  %}
+        <script>var date = null</script>
         <ul class="list">
             {% for post in posts %}
             <li class="item">
@@ -19,12 +20,12 @@
                     </a>
                 </div>
 
-                <div class="content">
+                <div class="content" id="{{ post.id }}">
                     <a class="title" href="/post/{{ post.id }}">{{ post.title }}</a>
                     <p>
                         <script>
-                        let date = new Date('{{ post.created_at }}').toLocaleDateString('it-IT')
-                        $('.Main .inner ul li .content').append(date)
+                        date = new Date('{{ post.created_at }}').toLocaleDateString('it-IT')
+                        $('.Main .inner ul li #{{ post.id }}').append(date)
                         </script>
                     </p>
                     <div class="except">

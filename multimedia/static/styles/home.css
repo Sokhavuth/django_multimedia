@@ -14,6 +14,11 @@
     background-color: var(--widget-background);
     display: grid;
     grid-template-columns: 35% 65%;
+    margin-bottom: 20px;
+}
+
+.Main .inner ul li:last-child{
+    margin-bottom: 0;
 }
 
 .Main .inner ul li .thumb{
