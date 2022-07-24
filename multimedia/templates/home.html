@@ -1,2 +1,41 @@
 <!--mysite/multimedia/templates/home.html-->
 
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/home.css' %}" />
+
+{% load static %}
+<section class="Main">
+    <div class="inner region">
+        {% if posts  %}
+        <ul class="list">
+            {% for post in posts %}
+            <li class="item">
+                <div class="thumb">
+                    <a href="/post/{{ post.id }}">
+                        <img src="{{ post.featured_image}}" />
+                        {% if post.video.all %}
+                        <img class="play-icon" src="{% static '/images/play.png' %}" />
+                        {% endif %}
+                    </a>
+                </div>
+
+                <div class="content">
+                    <a class="title" href="/post/{{ post.id }}">{{ post.title }}</a>
+                    <p>
+                        <script>
+                        let date = new Date('{{ post.created_at }}').toLocaleDateString('it-IT')
+                        $('.Main .inner ul li .content').append(date)
+                        </script>
+                    </p>
+                    <div class="except">
+                        {{ post.content|safe }}
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="sidebar">Sidebar</div>
+    </div>
+    
+</section>

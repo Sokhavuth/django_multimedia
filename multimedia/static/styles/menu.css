@@ -2,6 +2,7 @@
 
 .Menu{
     background: var(--background-light);
+    margin-bottom: 20px;
 }
 
 .topnav {

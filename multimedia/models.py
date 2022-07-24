@@ -1,6 +1,5 @@
 # mysite/multimedia/models.py
  
-from re import M
 from djongo import models
  
 from uuid import uuid4
@@ -72,7 +71,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     content = RichTextField(blank=True)
-    featured_image = models.CharField(max_length=255, blank=True)
+    featured_image = models.CharField(max_length=255)
     is_published = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
     created_at = models.DateField(auto_now=True)

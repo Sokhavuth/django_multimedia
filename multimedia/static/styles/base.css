@@ -4,9 +4,10 @@
     --background-light: #68accc;
     --background: white;
     --background-dark: #287494;
+    --widget-background: rgb(239, 239, 255);
     --body-font: 14px/1.5 Vidaloka, OdorMeanChey;
-    --link: #447e9b;
-    --color: rgb(109, 109, 109);
+    --link: #287494;
+    --color: rgb(63, 63, 63);
 }
   
 *{
