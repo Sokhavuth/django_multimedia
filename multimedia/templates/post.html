@@ -1,0 +1,61 @@
+<!--mysite/multimedia/templates/post.html-->
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/post.css' %}" />
+<script src="{% static 'scripts/setPlayer.js' %}"></script>
+
+<setion class="Post">
+    <div class="main region">
+        <div class="content">
+            {% if post %}
+            <div class="title">{{ post.title }}</div>
+            <span class="category">
+            {% for cat in post.category.all %}
+                {{ cat }}, 
+            {% endfor %}
+            </span>
+            <span class="date">
+                <script>
+                let date = new Date('{{ post.created_at }}').toLocaleDateString('it-IT')
+                $('.Post .main .content .date').append(date)
+                </script>
+            </span>
+
+            <div style="clear:both;padding-top:30px;"></div>
+
+            {% if videos %}
+                <div class="video">
+                    <div class="screen"></div>
+                    <div class="playlist"></div>
+                </div>
+                
+
+                <script>
+                    
+                    const videos = JSON.parse('{{ videos|safe }}')
+                    
+                    let clicked = 0
+    
+                    for(let index in videos){
+                        let ending = ''
+                        if(index == videos.length-1){
+                            ending = videos[index].status
+                        }
+
+                        let title = videos[index].title
+                        
+                        let html = `<div id="part${index}" 
+                                    class="part" onClick="setScreen(videos[${index}],${index},true)">
+                                    {{ post.title }} ភាគ​ ${++index} ${ending}
+                                    </div>`
+                        $('.playlist').append(html)
+                    }
+
+                    setScreen(videos[0],0,false)
+                </script>
+            {% endif %}
+            {% endif %}
+        </div>
+        <div class="sidebar">Sidebar</div>
+    </div>
+</setion>

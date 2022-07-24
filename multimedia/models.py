@@ -16,7 +16,7 @@ class Site(models.Model):
  
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     description = models.TextField(blank=True)
  
     class Meta:
@@ -28,7 +28,7 @@ class Category(models.Model):
  
 class Tag(models.Model):
     name = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     description = models.TextField(blank=True)
  
     def __str__(self):
@@ -45,34 +45,39 @@ class Video(models.Model):
     ]
  
     STATUS_OF_VIDEO = [
-        ('ending', 'ចប់​ហើយ'),
-        ('continue', 'នៅ​មាន​​ត')
+        ('ចប់​ហើយ', 'ចប់​ហើយ'),
+        ('នៅ​មាន​​ត', 'នៅ​មាន​​ត')
     ]
     
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(blank=True)
+    title = models.CharField(max_length=255, blank=True)
+    slug = models.SlugField()
     type = models.CharField(max_length=255, choices=TYPE_OF_VIDEO, default='YouTube')
     video_id = models.CharField(max_length=255)
-    status = models.CharField(max_length=255, choices=STATUS_OF_VIDEO, default='ending')
+    status = models.CharField(max_length=255, choices=STATUS_OF_VIDEO, default='នៅ​មាន​​ត')
     created_at = models.DateField(auto_now=True)
  
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['created_at','id']
  
     def __str__(self):
         return self.slug
  
- 
+
 from ckeditor.fields import RichTextField
 from django.conf import settings
  
 class Post(models.Model):
-    id = models.CharField(primary_key=True,max_length=255,default=uuid4().hex, editable=False) 
+    PUBLISHED = [
+        ('yes', 'ត្រូវ​បាន​ចុះ​ផ្សាយ'),
+        ('no', 'មិន​ទាន់​ចុះ​ផ្សាយ')
+    ]
+
+    id = models.CharField(primary_key=True, max_length=255,default=uuid4().hex, editable=False) 
     title = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     content = RichTextField(blank=True)
     featured_image = models.CharField(max_length=255)
-    is_published = models.BooleanField(default=False)
+    is_published = models.CharField(max_length=255, choices=PUBLISHED, default='yes')
     is_featured = models.BooleanField(default=False)
     created_at = models.DateField(auto_now=True)
     video = models.ManyToManyField(Video, blank=True)

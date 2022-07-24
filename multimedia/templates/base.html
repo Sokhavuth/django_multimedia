@@ -1,4 +1,4 @@
-<!--mysite/multimedia/templates/front/home.html-->
+<!--mysite/multimedia/templates/base.html-->
 
 <!DOCTYPE html>
 <html>
@@ -14,8 +14,10 @@
   </head>
   <body>
     {% include 'header.html' %}
-    {% if route == '/' %}
+    {% if route == '' %}
       {% include 'home.html' %}
+    {% elif route == 'post' %}
+      {% include 'post.html' %}
     {% endif %}
   </body>
 </html>
