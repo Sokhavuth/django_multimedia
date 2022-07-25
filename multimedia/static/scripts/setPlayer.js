@@ -1,4 +1,4 @@
-//asset/js/setPlayer.js
+// mysite/multimedia/static/scripts/setPlayer.js
 
 function setScreen(entry,id,click){
     if(entry['type'] == 'OK'){
@@ -41,4 +41,3 @@ function setScreen(entry,id,click){
 
     clicked = id
 }
-

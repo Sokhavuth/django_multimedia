@@ -28,10 +28,8 @@
                     <div class="screen"></div>
                     <div class="playlist"></div>
                 </div>
-                
 
                 <script>
-                    
                     const videos = JSON.parse('{{ videos|safe }}')
                     
                     let clicked = 0
@@ -69,8 +67,8 @@
 
 <script>
     var disqus_config = function () {
-    this.page.url = "https://khmerweb-mdjango.vercel.app/post/{ post.id }}";  
-    this.page.identifier = "{{ post.id }}"; 
+    this.page.url = "https://khmerweb-mdjango.vercel.app/post/{ post.post_id }}";  
+    this.page.identifier = "{{ post.post_id }}"; 
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE

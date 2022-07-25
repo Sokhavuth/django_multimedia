@@ -1,10 +1,20 @@
 # mysite/multimedia/views.py
 
-from django.shortcuts import render
 import json
+from django.shortcuts import render
+
+from rest_framework import viewsets
+from rest_framework import permissions
+from .serializers import PostSerializer
 
 from .models import Post
 from .config import Config
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().filter(is_published='yes')
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
 
 def index(request):
     posts = Post.objects.all().filter(is_published='yes')
